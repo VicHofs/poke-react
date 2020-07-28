@@ -8,7 +8,6 @@ function App() {
       <h1>
         PoKé React
       </h1>
-      ul
     </header>
   );
 }
