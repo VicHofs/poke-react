@@ -1,4 +1,5 @@
 import React from 'react';
+import api from './services/api.js'
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <h1>
         PoKé React
       </h1>
+      ul
     </header>
   );
 }
