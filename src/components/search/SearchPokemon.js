@@ -21,9 +21,10 @@ function Search(word) {
   }
 
   const getAbility = (json) => {
-    fetch(`https://pokeapi.co/api/v2/ability/${json.id}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${json.name}`)
       .then(res => res.json())
-      .then(res => {console.log(res)
+      .then(res => {console.log("aqui ",res);
+
         setData({
           id: json.id,
           name: json.name,
