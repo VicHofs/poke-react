@@ -5,6 +5,21 @@ function Search(word) {
   let { search } = word;
   const [data, setData] = useState([]);
 
+  const titleCase = (string) => {
+    if (string !== undefined) {
+      if (string.includes('-')) {
+        string = string.slice(0,string.indexOf('-'));
+      }
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  }
+
+  const formatId = (id) => {
+    if (id !== undefined) {
+      return '#' + id;
+    }
+  }
+
   const getAbility = (json) => {
     fetch(`https://pokeapi.co/api/v2/ability/${json.id}`)
       .then(res => res.json())
@@ -42,17 +57,18 @@ function Search(word) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
-        <td>{data.id}</td>
-        <td>{data.name}</td>
-        {data.effect.map(effect => <td>{effect.effect}</td>)}
+        <td></td>
+        <td className="pokeData">{formatId(data.id)}</td>
+        <td className="pokeData">{titleCase(data.name)}</td>
+        {data.effect.map(effect => <td className="pokeData">{effect.effect}</td>)}
       </>
     )
     } else if (data !== undefined) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
-        <td>{data.id}</td>
-        <td>{data.name}</td>
+        <td className="pokeData">{formatId(data.id)}</td>
+        <td className="pokeData">{titleCase(data.name)}</td>
       </>)
     }
     return null
