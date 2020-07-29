@@ -27,7 +27,7 @@ function Search(word) {
         setData({
           id: json.id,
           name: json.name,
-          image: json.sprites.front_default,
+          image: json.sprites.front_shiny,
           effect: res.effect_entries
         });
       })
@@ -43,7 +43,7 @@ function Search(word) {
         setData({
           id: json.id,
           name: json.name,
-          image: json.sprites.front_default
+          image: json.sprites.front_shiny
         });
         getAbility(json)
       })
