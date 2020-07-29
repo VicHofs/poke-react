@@ -23,12 +23,12 @@ function Search(word) {
   const getAbility = (json) => {
     fetch(`https://pokeapi.co/api/v2/ability/${json.id}`)
       .then(res => res.json())
-      .then(res => {
+      .then(res => {console.log(res)
         setData({
           id: json.id,
           name: json.name,
           image: json.sprites.front_default,
-          effect: res.effect_entries
+          arrayText: res.flavor_text_entries
         });
       })
       .catch(err => {
@@ -39,7 +39,7 @@ function Search(word) {
   const getPokemon = (search) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
       .then(res => res.json())
-      .then(json => {
+      .then(json => {console.log(json)
         setData({
           id: json.id,
           name: json.name,
@@ -52,7 +52,7 @@ function Search(word) {
 
   const renderData = (error="") => {
     if (data.length === 0) return <p className="noResult">PokéDex has not found it yet...</p>;
-    if (data.effect !== undefined) {
+    if (data.arrayText !== undefined) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
@@ -60,7 +60,7 @@ function Search(word) {
         <td className="pokeData">{formatId(data.id)}</td>
         <td><div className="divider"></div></td>
         <td className="pokeData">{titleCase(data.name)}</td>
-        {data.effect.map(effect => <td className="pokeData">{effect.effect}</td>)}
+        {data.arrayText.map(text => <td className="pokeData">{text.flavor_text}</td>)}
       </>
     )
     } else if (data !== undefined) {
