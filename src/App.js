@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 //import api from './services/api.js';
 import { AiOutlineSearch } from 'react-icons/ai';
 import './App.css';

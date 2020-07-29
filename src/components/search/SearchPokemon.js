@@ -38,10 +38,6 @@ function Search(word) {
   }
 
   const renderData = () => {
-    let pokeData = <>
-
-    </>
-
     if (data.effect !== undefined) {
       return (
       <>
