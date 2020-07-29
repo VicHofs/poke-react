@@ -32,7 +32,7 @@ function Search(word) {
         });
       })
       .catch(err => {
-        console.log(err);
+        console.log("ability", err);
       })
   }
 
@@ -47,13 +47,11 @@ function Search(word) {
         });
         getAbility(json)
       })
-      .catch(function (error) {
-        console.log('aqui getpoke', error, data);
-      });
+      .catch(renderData("not found"));
   }
 
-  const renderData = () => {
-    if (data.length === 0) return <p className="noResult">Searching the PokéDex...</p>;
+  const renderData = (error="") => {
+    if (data.length === 0) return <p className="noResult">PokéDex has not found it yet...</p>;
     if (data.effect !== undefined) {
       return (
       <>
