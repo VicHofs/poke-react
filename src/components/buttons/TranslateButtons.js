@@ -1,8 +1,13 @@
 import React from "react";
+import "./TranslateButtons.css";
 
-function TranslateButtons() {
+
+export default function TranslateButtons() {
 
     return(
-        
+        <select className="ListaBotoes">
+            <option className="ElementoListaBotoes">PT-BR</option>
+            <option className="ElementoListaBotoes">EN-US</option>
+        </select>
     );
 }
