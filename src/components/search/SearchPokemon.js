@@ -3,7 +3,6 @@ import '../../App.css'
 
 function Search(word) {
   let { search } = word;
-  let result;
   const [data, setData] = useState([]);
 
   const getAbility = (json) => {
@@ -15,30 +14,47 @@ function Search(word) {
           name: json.name,
           image: json.sprites.front_shiny,
           effect: res.effect_entries
-        })
+        });
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   const getPokemon = (search) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
       .then(res => res.json())
-      .then(json => getAbility(json))
+      .then(json => {
+        setData({
+          id: json.id,
+          name: json.name,
+          image: json.sprites.front_shiny
+        });
+        getAbility(json)
+      })
       .catch(function (error) {
-        console.log('There was an ERROR: ', error);
+        console.log('aqui getpoke', error);
       });
   }
 
-  const renderData = () => {    
-    if (data.effect !== undefined)
-      return (<>
-                <td><img src={data.image} alt={data.name}></img></td>
-                <td>{data.id}</td>
-                <td>{data.name}</td>
-                <td>{data.effect[0].effect}</td>
-                <td>{data.effect[1].effect}</td>
-              </>)
-
+  const renderData = () => {
+    if (data.effect !== undefined) {
+      return (
+      <>
+        <td><img src={data.image} alt={data.name}></img></td>
+        <td>{data.id}</td>
+        <td>{data.name}</td>
+        {data.effect.map(effect => <td>{effect.effect}</td>)}
+      </>
+    )
+    } else if (data !== undefined) {
+      return (
+      <>
+        <td><img src={data.image} alt={data.name}></img></td>
+        <td>{data.id}</td>
+        <td>{data.name}</td>
+      </>)
+    }
     return null
   }
 
@@ -47,7 +63,7 @@ function Search(word) {
     getPokemon(search)
   }, [search]);
 
-  console.log(data.effect)
+  //console.log(data)
 
   return (
 

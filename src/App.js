@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 //import api from './services/api.js';
 import { AiOutlineSearch } from 'react-icons/ai';
 import './App.css';
-import Search from './components/search/Search'
+import SearchPokemon from './components/search/SearchPokemon'
 
 function App() {
-  let [search, setSearch] = useState("");
+  let [typedSearch, setTypedSearch] = useState("");
 
   return (
     <div className="mainView">
@@ -23,7 +23,7 @@ function App() {
                 type="text"
                 placeholder="Got a favorite Pokémon?"
                 className="searchBox"
-                onChange={e => setSearch(e.target.value)}
+                onChange={e => setTypedSearch(e.target.value)}
               />
             </td>
             <td>
@@ -33,7 +33,7 @@ function App() {
         </table>      
       </div>
       <div className="searchResults">
-          <Search search={search} />
+          <SearchPokemon search={typedSearch} />
         </div>
     </div>
   );
