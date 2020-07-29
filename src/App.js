@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 //import api from './services/api.js';
 import { AiOutlineSearch } from 'react-icons/ai';
 import './App.css';
+import Search from './components/search/Search'
 
 function App() {
+  let [search, setSearch] = useState("");
+
   return (
     <div className="mainView">
       <header>
@@ -16,14 +19,22 @@ function App() {
         <table className="container">
           <tr>
             <td>
-              <input type="text" placeholder="Got a favorite Pokémon?" className="searchBox"/>
+              <input
+                type="text"
+                placeholder="Got a favorite Pokémon?"
+                className="searchBox"
+                onChange={e => setSearch(e.target.value)}
+              />
             </td>
             <td>
-              <AiOutlineSearch className="searchIcon"/>
+              <AiOutlineSearch className="searchIcon" />
             </td>
           </tr>
-        </table>
+        </table>      
       </div>
+      <div className="searchResults">
+          <Search search={search} />
+        </div>
     </div>
   );
 }
