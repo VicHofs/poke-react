@@ -1,9 +1,13 @@
 body {
+    --bg: rgb(224,224,224);
+    --details: rgb(61, 61, 61);
     background-color: rgb(224, 224, 224);
 }
 
 @media (prefers-color-scheme: dark) {
     body {
+        --bg: rgb(37, 37, 37);
+        --details: rgb(131, 131, 131);
         background-color: rgb(37, 37, 37);
     }
 }
