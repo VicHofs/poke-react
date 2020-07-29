@@ -79,6 +79,21 @@
   color: var(--vibrant);
 }
 
+.divider {
+  background-color: var(--details);
+  margin-right: 8px;
+  margin-left: 8px;
+  width: 1px;
+  height: 80px;
+}
+
+.noResult {
+  padding: 0px 20px 0px 20px;
+  color: var(--details);
+  font-family: 'FireRed', sans-serif;
+  font-size: 25px;
+}
+
 header {
   top: 0;
   left: 0;

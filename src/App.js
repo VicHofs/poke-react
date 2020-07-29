@@ -32,9 +32,7 @@ function App() {
           </tr>
         </table>
       </div>
-      <div className="searchResults">
-          <SearchPokemon search={typedSearch} />
-        </div>
+      {typedSearch && <div className="searchResults"><SearchPokemon search={typedSearch} /></div>}
     </div>
   );
 }

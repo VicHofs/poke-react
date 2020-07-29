@@ -48,17 +48,19 @@ function Search(word) {
         getAbility(json)
       })
       .catch(function (error) {
-        console.log('aqui getpoke', error);
+        console.log('aqui getpoke', error, data);
       });
   }
 
   const renderData = () => {
+    if (data.length === 0) return <p className="noResult">Searching the PokéDex...</p>;
     if (data.effect !== undefined) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
-        <td></td>
+        <td><div className="divider"></div></td>
         <td className="pokeData">{formatId(data.id)}</td>
+        <td><div className="divider"></div></td>
         <td className="pokeData">{titleCase(data.name)}</td>
         {data.effect.map(effect => <td className="pokeData">{effect.effect}</td>)}
       </>
@@ -67,7 +69,9 @@ function Search(word) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
+        <td><div className="divider"></div></td>
         <td className="pokeData">{formatId(data.id)}</td>
+        <td><div className="divider"></div></td>
         <td className="pokeData">{titleCase(data.name)}</td>
       </>)
     }
