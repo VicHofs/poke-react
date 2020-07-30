@@ -47,7 +47,7 @@ function Search(word) {
               <p className="pokeDataTitle">{titleCase(data.name)}</p>
               <div className="spacer"></div>
               {/* Tá estático aqui!! //TODO: trocar a função para bater com o dropdown*/}
-              {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <p className="pokeData">{entry.flavor_text}</p>)}
+              {/* {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <p className="pokeData">{entry.flavor_text}</p>)} */}
             </div>
           </td>
         </>)
