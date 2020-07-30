@@ -1,39 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './DropdownMenu.css'
 
-export default function DropDownMenu() {
-    const [menuOptions, setMenuOptions] = useState = ({ results: [] });
+export default function DropDownMenu(props) {
+    let {dataOfPokemons} = props;
+    const [menuOptions, setMenuOptions] = useState({ results: [] });
 
+    useEffect(() => {
+        const fetchResults = dataOfPokemons.map(res => ({
+            language : res.language.name,
+            version: res.version.name
+        }));
+        setMenuOptions({fetchResults});
+    }, []);
 
-    const getDescription = (json) => {
-        fetch(`https://pokeapi.co/api/v2/pokemon-species/${json.name}`)
-            .then(res => res.json())
-            .then(res => {
-            setData({
-                id: json.id,
-                name: json.name,
-                image: json.sprites.front_default,
-                arrayText: res.flavor_text_entries
-            });
-        })
-        .catch(err => {
-            console.log("ability", err);
-        })
-    }
-
-    const getPokemon = (search) => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
-        .then(res => res.json())
-        .then(json => {
-            setData({
-                id: json.id,
-                name: json.name,
-                image: json.sprites.front_default
-            });
-            getDescription(json)
-        })
-        .catch(err => console.log(err));
-    }
+    return(
+        <select>
+            {dataOfPokemons.results.map(item => (
+                <option>{item.language.name} -- {item.version.name} </option>
+            ))}
+        </select>
+    )
 }
 
 // export default function DropdownMenu(obj) {
