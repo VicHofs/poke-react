@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './SearchPokemon.css'
 
 function Search(word) {
-  let { search } = word;
-  const [data, setData] = useState([]);
+  let { data } = word;
 
   const titleCase = (string) => {
     if (string !== undefined) {
@@ -18,37 +17,6 @@ function Search(word) {
     if (id !== undefined) {
       return '#' + id;
     }
-  }
-
-  const getAbility = (json) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${json.name}`)
-      .then(res => res.json())
-      .then(res => {console.log("aqui ",res);
-
-        setData({
-          id: json.id,
-          name: json.name,
-          image: json.sprites.front_default,
-          arrayText: res.flavor_text_entries
-        });
-      })
-      .catch(err => {
-        console.log("ability", err);
-      })
-  }
-
-  const getPokemon = (search) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
-      .then(res => res.json())
-      .then(json => {console.log(json)
-        setData({
-          id: json.id,
-          name: json.name,
-          image: json.sprites.front_default
-        });
-        getAbility(json)
-      })
-      .catch(err => console.log(err));
   }
 
   const renderData = () => {
@@ -78,9 +46,7 @@ function Search(word) {
   }
 
 
-  useEffect(() => {
-    getPokemon(search)
-  }, [search]);
+
 
   //console.log(data)
 
