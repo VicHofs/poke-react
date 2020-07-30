@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../App.css'
-import TranslateButtons from '../buttons/TranslateButtons';
+import Dropdown from '../buttons/Dropdown';
 
 function Search(word) {
   let { search } = word;
@@ -64,7 +64,7 @@ function Search(word) {
         <td><div className="divider"></div></td>
         <td className="pokeData">{titleCase(data.name)}</td>
         {data.effect.map(effect => <td className="pokeData">{effect.effect}</td>)}
-		<TranslateButtons />
+		<Dropdown />
       </>
     )
     } else if (data !== undefined) {
@@ -75,7 +75,7 @@ function Search(word) {
         <td className="pokeData">{formatId(data.id)}</td>
         <td><div className="divider"></div></td>
         <td className="pokeData">{titleCase(data.name)}</td>
-		<TranslateButtons />
+		<Dropdown />
       </>)
     }
     return null

@@ -1,0 +1,25 @@
+.listDrop {
+    display: flex;
+    border: 1px var(--details);
+    list-style-type: none;
+    justify-content: space-between;
+    background-color: var(--bg);
+    color: var(--vibrant);
+    font-family: 'FireRed', sans-serif;
+    font-size: 20px;
+}
+
+.listDrop:focus {
+    outline: none;
+    border-width: 1px;
+}
+
+
+.listElement {
+    color: var(--vibrant);
+    background-color: var(--bg);
+    box-shadow: none;
+    border-radius: 5px;
+    border: none;
+    max-height: 20px;
+}
