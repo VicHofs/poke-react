@@ -63,8 +63,13 @@ function Search(word) {
         <td><div className="divider"></div></td>
         <td className="pokeData">{formatId(data.id)}</td>
         <td><div className="divider"></div></td>
-        <td className="pokeData">{titleCase(data.name)}</td>
-        {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <td className="pokeData">{entry.flavor_text}</td>)}
+        <td className="pokeData">
+          <div className="descriptionDiv">
+            <p className="pokeDataTitle">{titleCase(data.name)}</p>
+            <div className="spacer"></div>
+            {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <p className="pokeData">{entry.flavor_text}</p>)}
+          </div>
+        </td>
 		<Dropdown />
       </>
     )

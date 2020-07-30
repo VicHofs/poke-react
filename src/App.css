@@ -7,6 +7,22 @@
   src: local('FireRed'), url(./fonts/pokemon_fire_red.otf);
 }
 
+.pokeDataTitle {
+  font-family: 'FireRed', sans-serif;
+  font-size: 30px;
+  color: var(--vibrant);
+  margin: 0px;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.descriptionDiv {
+  display: flex;
+  flex-direction: column;
+}
+
 .mainView {
   display: flex;
   flex-direction: column;
@@ -77,6 +93,7 @@
   font-family: 'FireRed', sans-serif;
   font-size: 25px;
   color: var(--vibrant);
+  margin: 0px;
 }
 
 .divider {
