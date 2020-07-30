@@ -1,38 +1,16 @@
-import React, { useState } from 'react';
-//import api from './services/api.js';
-import { AiOutlineSearch } from 'react-icons/ai';
+import React from 'react';
 import './App.css';
-import SearchPokemon from './components/search/SearchPokemon'
+import SearchBar from './components/searchBar/SearchBar';
+import Header from './components/Header/Header';
 
 function App() {
-  let [typedSearch, setTypedSearch] = useState("");
+  
 
   return (
     <div className="mainView">
-      <header>
-        <h1>
-          PoKé React
-        </h1>
-      </header>
+      <Header />
       <div className="headerSpacer"></div>
-      <div className="searchBar">
-        <table className="container">
-          <tr>
-            <td>
-              <input
-                type="text"
-                placeholder="Got a favorite Pokémon?"
-                className="searchBox"
-                onChange={e => setTypedSearch(e.target.value)}
-              />
-            </td>
-            <td>
-              <AiOutlineSearch className="searchIcon" />
-            </td>
-          </tr>
-        </table>
-      </div>
-      {typedSearch && <div className="searchResults"><SearchPokemon search={typedSearch} /></div>}
+      <SearchBar />
     </div>
   );
 }
