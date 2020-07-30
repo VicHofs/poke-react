@@ -16,7 +16,7 @@ export default function DropDownMenu(props) {
     return(
         <select>
             {dataOfPokemons.results.map(item => (
-                <option>{item.language.name} -- {item.version.name} </option>
+                <option>{item.language.name} — {item.version.name} </option>
             ))}
         </select>
     )
