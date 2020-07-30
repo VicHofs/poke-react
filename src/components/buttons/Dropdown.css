@@ -11,6 +11,7 @@
 
 .listDrop:focus {
     outline: none;
+    background-color: var(--details);
     border-width: 1px;
 }
 
