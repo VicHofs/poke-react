@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import '../../App.css'
+import React from 'react';
+import './SearchPokemon.css'
+import DropdownMenu from '../dropdownMenu/DropdownMenu';
 
 function Search(word) {
-  let { search } = word;
-  const [data, setData] = useState([]);
+  let { data } = word;
 
   const titleCase = (string) => {
     if (string !== undefined) {
@@ -20,41 +20,9 @@ function Search(word) {
     }
   }
 
-  const getAbility = (json) => {
-    fetch(`https://pokeapi.co/api/v2/ability/${json.id}`)
-      .then(res => res.json())
-      .then(res => {
-        setData({
-          id: json.id,
-          name: json.name,
-          image: json.sprites.front_default,
-          effect: res.effect_entries
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-
-  const getPokemon = (search) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
-      .then(res => res.json())
-      .then(json => {
-        setData({
-          id: json.id,
-          name: json.name,
-          image: json.sprites.front_default
-        });
-        getAbility(json)
-      })
-      .catch(function (error) {
-        console.log('aqui getpoke', error, data);
-      });
-  }
-
   const renderData = () => {
-    if (data.length === 0) return <p className="noResult">Searching the PokéDex...</p>;
-    if (data.effect !== undefined) {
+    if (data.length === 0) return <p className="noResult">PokéDex has not found it yet...</p>;
+    if (data.arrayText !== undefined) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
@@ -62,7 +30,9 @@ function Search(word) {
         <td className="pokeData">{formatId(data.id)}</td>
         <td><div className="divider"></div></td>
         <td className="pokeData">{titleCase(data.name)}</td>
-        {data.effect.map(effect => <td className="pokeData">{effect.effect}</td>)}
+        <td><div className="divider"></div></td>
+        <td><DropdownMenu data={data}/></td>
+        {/* {data.arrayText.map(text => <td className="pokeData">{text.flavor_text}</td>)} */}
       </>
     )
     } else if (data !== undefined) {
@@ -79,9 +49,7 @@ function Search(word) {
   }
 
 
-  useEffect(() => {
-    getPokemon(search)
-  }, [search]);
+
 
   //console.log(data)
 
