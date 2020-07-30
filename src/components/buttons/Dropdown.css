@@ -6,12 +6,12 @@
     background-color: var(--bg);
     color: var(--vibrant);
     font-family: 'FireRed', sans-serif;
-    font-size: 20px;
+    font-size: 20px
 }
 
 .listDrop:focus {
     outline: none;
-    background-color: var(--details);
+    background-color: var(--lightContrast);
     border-width: 1px;
 }
 
@@ -23,4 +23,5 @@
     border-radius: 5px;
     border: none;
     max-height: 20px;
+    margin: 5px;
 }

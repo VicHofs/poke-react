@@ -5,6 +5,22 @@ import Dropdown from '../buttons/Dropdown';
 function Search(word) {
   let { search } = word;
   const [data, setData] = useState([]);
+  const [flavorVersion, setFlavorVersion] = useState({lang: 'en', ver: 'alpha-sapphire'});
+  const [description, setDescription] = useState(<p className="pokeData">Checking the PokéDex...</p>);
+
+  const versionHandler = (selection) => {
+    console.log('event: ', selection);
+    selection = selection.split('—')
+    setFlavorVersion({
+      lang: selection[0],
+      ver: selection[1]
+    });
+    console.log('changed version from ', flavorVersion.lang, flavorVersion.ver);
+  }
+
+  const declutter = (string) => {
+    return string.replace(/[\n\r]+/g, ' ');
+  }
 
   const titleCase = (string) => {
     if (string !== undefined) {
@@ -70,10 +86,10 @@ function Search(word) {
             <p className="pokeDataTitle">{titleCase(data.name)}</p>
             <div className="spacer"></div>
             {/* Tá estático aqui!! //TODO: trocar a função para bater com o dropdown*/}
-            {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <p className="pokeData">{entry.flavor_text}</p>)}
+            {data.description.filter((entry) => entry.language.name === flavorVersion.lang && entry.version.name === flavorVersion.ver).map(entry => <p className="pokeData">{declutter(entry.flavor_text)}</p>)}
           </div>
         </td>
-		<Dropdown data={data.description} />
+		<Dropdown data={data.description} onChange={(e) => versionHandler(e.target.value)}/>
       </>
     )
     } 

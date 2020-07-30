@@ -1,5 +1,6 @@
 body {
     --bg: rgb(224,224,224);
+    --lightContrast: rgb(200, 200, 200);
     --details: rgb(61, 61, 61);
     --vibrant: rgb(19, 19, 19);
     background-color: rgb(224, 224, 224);
@@ -8,6 +9,7 @@ body {
 @media (prefers-color-scheme: dark) {
     body {
         --bg: rgb(37, 37, 37);
+        --lightContrast: rgb(50, 50, 50);
         --details: rgb(131, 131, 131);
         --vibrant: rgb(231, 231, 218);
         background-color: rgb(37, 37, 37);
