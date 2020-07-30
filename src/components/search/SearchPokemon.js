@@ -3,8 +3,7 @@ import '../../App.css'
 import TranslateButtons from '../buttons/TranslateButtons';
 
 function Search(word) {
-  let { search } = word;
-  const [data, setData] = useState([]);
+  let { data } = word;
 
   const titleCase = (string) => {
     if (string !== undefined) {
@@ -21,41 +20,9 @@ function Search(word) {
     }
   }
 
-  const getAbility = (json) => {
-    fetch(`https://pokeapi.co/api/v2/ability/${json.id}`)
-      .then(res => res.json())
-      .then(res => {
-        setData({
-          id: json.id,
-          name: json.name,
-          image: json.sprites.front_default,
-          effect: res.effect_entries
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      })
-  }
-
-  const getPokemon = (search) => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
-      .then(res => res.json())
-      .then(json => {
-        setData({
-          id: json.id,
-          name: json.name,
-          image: json.sprites.front_default
-        });
-        getAbility(json)
-      })
-      .catch(function (error) {
-        console.log('aqui getpoke', error, data);
-      });
-  }
-
   const renderData = () => {
-    if (data.length === 0) return <p className="noResult">Searching the PokéDex...</p>;
-    if (data.effect !== undefined) {
+    if (data.length === 0) return <p className="noResult">PokéDex has not found it yet...</p>;
+    if (data.arrayText !== undefined) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
@@ -82,9 +49,7 @@ function Search(word) {
   }
 
 
-  useEffect(() => {
-    getPokemon(search)
-  }, [search]);
+
 
   //console.log(data)
 
