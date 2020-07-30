@@ -10,7 +10,7 @@ export default function Search() {
     const getDescription = (json) => {
       fetch(`https://pokeapi.co/api/v2/pokemon-species/${json.name}`)
         .then(res => res.json())
-        .then(res => {console.log("aqui ",res);
+        .then(res => {//console.log("aqui ",res);
   
           setData({
             id: json.id,
@@ -27,7 +27,7 @@ export default function Search() {
     const getPokemon = (search) => {
       fetch(`https://pokeapi.co/api/v2/pokemon/${search}`)
         .then(res => res.json())
-        .then(json => {console.log(json)
+        .then(json => {//console.log(json)
           setData({
             id: json.id,
             name: json.name,

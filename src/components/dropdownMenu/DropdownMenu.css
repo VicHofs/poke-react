@@ -1,0 +1,4 @@
+button, .option{
+    display: flex;
+    width: 130px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchPokemon.css'
+import DropdownMenu from '../dropdownMenu/DropdownMenu';
 
 function Search(word) {
   let { data } = word;
@@ -29,7 +30,9 @@ function Search(word) {
         <td className="pokeData">{formatId(data.id)}</td>
         <td><div className="divider"></div></td>
         <td className="pokeData">{titleCase(data.name)}</td>
-        {data.arrayText.map(text => <td className="pokeData">{text.flavor_text}</td>)}
+        <td><div className="divider"></div></td>
+        <td><DropdownMenu data={data}/></td>
+        {/* {data.arrayText.map(text => <td className="pokeData">{text.flavor_text}</td>)} */}
       </>
     )
     } else if (data !== undefined) {
