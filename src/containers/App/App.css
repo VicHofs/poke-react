@@ -1,10 +1,26 @@
 @font-face {
   font-family: 'PokeTitle';
-  src: local('PokeTitle'), url(../../assets/fonts/Pocket-Monk.otf);
+  src: local('PokeTitle'), url(./fonts/Pocket-Monk.otf);
 }
 @font-face {
   font-family: 'FireRed';
-  src: local('FireRed'), url(../../assets/fonts/pokemon_fire_red.otf);
+  src: local('FireRed'), url(./fonts/pokemon_fire_red.otf);
+}
+
+.pokeDataTitle {
+  font-family: 'FireRed', sans-serif;
+  font-size: 30px;
+  color: var(--vibrant);
+  margin: 0px;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.descriptionDiv {
+  display: flex;
+  flex-direction: column;
 }
 
 .mainView {
@@ -77,6 +93,7 @@
   font-family: 'FireRed', sans-serif;
   font-size: 25px;
   color: var(--vibrant);
+  margin: 0px;
 }
 
 .divider {

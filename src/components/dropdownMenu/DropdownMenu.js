@@ -12,10 +12,11 @@ export default function DropDownMenu(props) {
         }));
         setMenuOptions({fetchResults});
     }, []);
+    console.log(menuOptions, props);
 
     return(
         <select>
-            {dataOfPokemons.results.map(item => (
+            {menuOptions.results.map(item => (
                 <option>{item.language.name} -- {item.version.name} </option>
             ))}
         </select>

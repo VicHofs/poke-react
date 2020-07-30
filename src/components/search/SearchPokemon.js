@@ -8,7 +8,7 @@ function Search(word) {
   const titleCase = (string) => {
     if (string !== undefined) {
       if (string.includes('-')) {
-        string = string.slice(0,string.indexOf('-'));
+        string = string.slice(0, string.indexOf('-'));
       }
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
@@ -24,26 +24,33 @@ function Search(word) {
     if (data.length === 0) return <p className="noResult">PokéDex has not found it yet...</p>;
     if (data.arrayText !== undefined) {
       return (
-      <>
-        <td><img src={data.image} alt={data.name}></img></td>
-        <td><div className="divider"></div></td>
-        <td className="pokeData">{formatId(data.id)}</td>
-        <td><div className="divider"></div></td>
-        <td className="pokeData">{titleCase(data.name)}</td>
-        <td><div className="divider"></div></td>
-        <td><DropdownMenu data={data}/></td>
-        {/* {data.arrayText.map(text => <td className="pokeData">{text.flavor_text}</td>)} */}
-      </>
-    )
+        <>
+          <td><img src={data.image} alt={data.name}></img></td>
+          <td><div className="divider"></div></td>
+          <td className="pokeData">{formatId(data.id)}</td>
+          <td><div className="divider"></div></td>
+          <td className="pokeData">{titleCase(data.name)}</td>
+          <td><div className="divider"></div></td>
+          <td><DropdownMenu data={data} /></td>
+          {/* {data.arrayText.map(text => <td className="pokeData">{text.flavor_text}</td>)} */}
+        </>
+      )
     } else if (data !== undefined) {
       return (
-      <>
-        <td><img src={data.image} alt={data.name}></img></td>
-        <td><div className="divider"></div></td>
-        <td className="pokeData">{formatId(data.id)}</td>
-        <td><div className="divider"></div></td>
-        <td className="pokeData">{titleCase(data.name)}</td>
-      </>)
+        <>
+          <td><img src={data.image} alt={data.name}></img></td>
+          <td><div className="divider"></div></td>
+          <td className="pokeData">{formatId(data.id)}</td>
+          <td><div className="divider"></div></td>
+          <td className="pokeData">
+            <div className="descriptionDiv">
+              <p className="pokeDataTitle">{titleCase(data.name)}</p>
+              <div className="spacer"></div>
+              {/* Tá estático aqui!! //TODO: trocar a função para bater com o dropdown*/}
+              {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <p className="pokeData">{entry.flavor_text}</p>)}
+            </div>
+          </td>
+        </>)
     }
     return null
   }
