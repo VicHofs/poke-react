@@ -21,7 +21,7 @@ function Search(word) {
   }
 
   const renderData = () => {
-    if (data.length === 0) return <p className="noResult">No matches in the pokémon</p>;
+    if (data.length === 0) return <p className="noResult">No matches in the PokéDex</p>;
     if (data.arrayText !== undefined) {
       return (
       <>
