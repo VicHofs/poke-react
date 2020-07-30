@@ -56,8 +56,9 @@ function Search(word) {
   }
 
   const renderData = () => {
-    if (data.length === 0) return <p className="noResult">Searching the PokéDex...</p>;
+    if (data.length === 0) return <p className="noResult">No PokéDex matches</p>;
     if (data.description !== undefined) {
+      console.log('flavor data: ', data.description);
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
@@ -72,21 +73,21 @@ function Search(word) {
             {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <p className="pokeData">{entry.flavor_text}</p>)}
           </div>
         </td>
-		<Dropdown />
+		<Dropdown data={data.description} />
       </>
     )
     } 
-    else if (data !== undefined) {
-      return (
-      <>
-        <td><img src={data.image} alt={data.name}></img></td>
-        <td><div className="divider"></div></td>
-        <td className="pokeData">{formatId(data.id)}</td>
-        <td><div className="divider"></div></td>
-        <td className="pokeData">{titleCase(data.name)}</td>
-		<Dropdown />
-      </>)
-    }
+    // else if (data !== undefined) {
+    //   return (
+    //   <>
+    //     <td><img src={data.image} alt={data.name}></img></td>
+    //     <td><div className="divider"></div></td>
+    //     <td className="pokeData">{formatId(data.id)}</td>
+    //     <td><div className="divider"></div></td>
+    //     <td className="pokeData">{titleCase(data.name)}</td>
+		// <Dropdown data={data.description} />
+    //   </>)
+    // }
     return null
   }
 
@@ -101,7 +102,6 @@ function Search(word) {
       <tr>
         {renderData()}
       </tr>
-
     </table>
   )
 }

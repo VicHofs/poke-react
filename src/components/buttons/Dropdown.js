@@ -2,12 +2,12 @@ import React from "react";
 import "./Dropdown.css";
 
 
-export default function TranslateButtons() {
-
+export default function Dropdown(data) {
+    let flavorTexts = data.data;
+    console.log('dropdown got: ', flavorTexts);
     return(
         <select className="listDrop">
-            <option className="listElement">PT-BR</option>
-            <option className="listElement">EN-US</option>
+            {flavorTexts.map((entry) => <option>`${entry.language.name} — ${entry.version.name}`</option>)}
         </select>
     );
 }
