@@ -30,6 +30,7 @@ function Search(word) {
           name: json.name,
           image: json.sprites.front_default,
           description: res.flavor_text_entries
+          //description retorna um array com objetos, compostos de flavor_text, language e version
         });
         console.log(res);
       })
@@ -67,6 +68,7 @@ function Search(word) {
           <div className="descriptionDiv">
             <p className="pokeDataTitle">{titleCase(data.name)}</p>
             <div className="spacer"></div>
+            {/* Tá estático aqui!! //TODO: trocar a função para bater com o dropdown*/}
             {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <p className="pokeData">{entry.flavor_text}</p>)}
           </div>
         </td>
