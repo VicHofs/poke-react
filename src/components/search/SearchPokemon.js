@@ -21,16 +21,17 @@ function Search(word) {
     }
   }
 
-  const getAbility = (json) => {
-    fetch(`https://pokeapi.co/api/v2/ability/${json.id}`)
+  const getDescription = (json) => {
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${json.name}`)
       .then(res => res.json())
       .then(res => {
         setData({
           id: json.id,
           name: json.name,
           image: json.sprites.front_default,
-          effect: res.effect_entries
+          description: res.flavor_text_entries
         });
+        console.log(res);
       })
       .catch(err => {
         console.log(err);
@@ -46,7 +47,7 @@ function Search(word) {
           name: json.name,
           image: json.sprites.front_default
         });
-        getAbility(json)
+        getDescription(json)
       })
       .catch(function (error) {
         console.log('aqui getpoke', error, data);
@@ -55,7 +56,7 @@ function Search(word) {
 
   const renderData = () => {
     if (data.length === 0) return <p className="noResult">Searching the PokéDex...</p>;
-    if (data.effect !== undefined) {
+    if (data.description !== undefined) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
@@ -63,11 +64,12 @@ function Search(word) {
         <td className="pokeData">{formatId(data.id)}</td>
         <td><div className="divider"></div></td>
         <td className="pokeData">{titleCase(data.name)}</td>
-        {data.effect.map(effect => <td className="pokeData">{effect.effect}</td>)}
+        {data.description.filter((entry) => entry.language.name === 'en' && entry.version.name === 'x').map(entry => <td className="pokeData">{entry.flavor_text}</td>)}
 		<Dropdown />
       </>
     )
-    } else if (data !== undefined) {
+    } 
+    else if (data !== undefined) {
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
@@ -85,8 +87,6 @@ function Search(word) {
   useEffect(() => {
     getPokemon(search)
   }, [search]);
-
-  //console.log(data)
 
   return (
 
