@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../App.css'
+import './SearchPokemon.css'
 
 function Search(word) {
   let { search } = word;
@@ -48,10 +48,10 @@ function Search(word) {
         });
         getAbility(json)
       })
-      .catch(renderData("not found"));
+      .catch(err => console.log(err));
   }
 
-  const renderData = (error="") => {
+  const renderData = () => {
     if (data.length === 0) return <p className="noResult">PokéDex has not found it yet...</p>;
     if (data.arrayText !== undefined) {
       return (
