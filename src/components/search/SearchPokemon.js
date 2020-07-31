@@ -25,7 +25,7 @@ function Search(word) {
 
   const titleCase = (string) => {
     if (string !== undefined) {
-      if (string.includes('-')) {
+      if (string.includes('-') && string.charAt(string.indexOf('-')-1) !== 'o') {
         string = string.slice(0,string.indexOf('-'));
       }
       return string.charAt(0).toUpperCase() + string.slice(1);
