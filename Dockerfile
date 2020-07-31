@@ -13,4 +13,4 @@ RUN npm install
 RUN yarn run build
 
 
-CMD ["npm", "start"]
+CMD ["npm", "run", "ssr"]
