@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import loader from '../../assets/loader.png';
 import '../../App.css'
 import Dropdown from '../buttons/Dropdown';
 
@@ -102,7 +103,7 @@ function Search(word) {
 		// <Dropdown data={data.description} />
     //   </>)
     // }
-    return null
+    return <img className="loader" src={loader} alt="loading..."/>;
   }
 
 
