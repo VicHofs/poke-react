@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+    client:
+        container_name: poke-react-client
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - '.:/app'
+            - '/app/node_modules'
+        ports:
+            - '3001:3000'
+        environment:
+            - NODE_ENV=development
+            
+
+    server:
+        container_name: poke-react-server
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - '.:/app'
+            - '/app/node_modules'
+        ports:
+            - '8081:8081'
+        environment:
+            - NODE_ENV=development
+            

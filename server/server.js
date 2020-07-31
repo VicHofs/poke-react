@@ -8,7 +8,7 @@ import ReactDOMServer from 'react-dom/server'
 
 import App from '../src/App'
 
-const PORT = 8080
+const PORT = 8081
 const app = express()
 
 const router = express.Router()
