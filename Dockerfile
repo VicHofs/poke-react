@@ -17,4 +17,4 @@ RUN yarn global add serve
 WORKDIR /app
 COPY --from=builder /app/build .
 
-CMD ["npm", "run", "ssr"]
+CMD ["npm", "start"]
