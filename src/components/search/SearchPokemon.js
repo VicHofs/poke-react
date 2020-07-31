@@ -109,6 +109,7 @@ function Search(word) {
 
   useEffect(() => {
     getPokemon(search)
+    // eslint-disable-next-line
   }, [search]);
 
   return (
