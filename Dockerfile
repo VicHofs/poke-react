@@ -1,5 +1,5 @@
 # pull official base image
-FROM node:12-alpine AS builder
+FROM node:12-alpine
 
 # set working directory
 WORKDIR /app
@@ -12,9 +12,5 @@ COPY . .
 RUN npm install
 RUN yarn run build
 
-FROM node:12-alpine
-RUN yarn global add serve
-WORKDIR /app
-COPY --from=builder /app/build .
 
 CMD ["npm", "start"]
