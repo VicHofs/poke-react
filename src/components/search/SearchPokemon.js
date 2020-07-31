@@ -19,7 +19,7 @@ function Search(word) {
   }
 
   const declutter = (string) => {
-    return string.replace(/[\n\r]+/g, ' ');
+    return string.replace(String.fromCharCode(12), ' ');
   }
 
   const titleCase = (string) => {
