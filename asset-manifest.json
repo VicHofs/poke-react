@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/poke-react/static/css/main.12c783d3.chunk.css",
+    "main.js": "/poke-react/static/js/main.b498d482.chunk.js",
+    "main.js.map": "/poke-react/static/js/main.b498d482.chunk.js.map",
+    "runtime-main.js": "/poke-react/static/js/runtime-main.2bf59e40.js",
+    "runtime-main.js.map": "/poke-react/static/js/runtime-main.2bf59e40.js.map",
+    "static/js/2.685ae31f.chunk.js": "/poke-react/static/js/2.685ae31f.chunk.js",
+    "static/js/2.685ae31f.chunk.js.map": "/poke-react/static/js/2.685ae31f.chunk.js.map",
+    "index.html": "/poke-react/index.html",
+    "precache-manifest.fe4534b1150f333abecd55705a166908.js": "/poke-react/precache-manifest.fe4534b1150f333abecd55705a166908.js",
+    "service-worker.js": "/poke-react/service-worker.js",
+    "static/css/main.12c783d3.chunk.css.map": "/poke-react/static/css/main.12c783d3.chunk.css.map",
+    "static/js/2.685ae31f.chunk.js.LICENSE.txt": "/poke-react/static/js/2.685ae31f.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/poke-react/static/media/pokemon_fire_red.72e3f806.otf",
+    "static/media/loader.png": "/poke-react/static/media/loader.b1413c19.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2bf59e40.js",
+    "static/js/2.685ae31f.chunk.js",
+    "static/css/main.12c783d3.chunk.css",
+    "static/js/main.b498d482.chunk.js"
+  ]
+}
