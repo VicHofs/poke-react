@@ -9,8 +9,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # install and build app dependencies 
 COPY . .
-RUN npm install
+RUN yarn install
 RUN yarn run build
 
 
-CMD ["npm", "run", "ssr"]
+CMD ["yarn", "run", "ssr"]
