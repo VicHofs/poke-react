@@ -1,3 +1,30 @@
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Why SSR?
+All the data will be pre-rendered via server side before the client side gets it, 
+so that it improves the performance and experience when navigating the application.
+You can check it out by simply disabling the javascript in your browser settings.
+You'll still get the pre-rendered html and css files but the application won't be
+able to interact with you, once it needs javascript to perform actions.
+
+
+## Getting Started With Poke React SSR on Docker
+
+First, clone the project 
+
+``` bash
+git clone https://github.com/hv90/poke-react.git && cd poke-react
+```
+Then let docker make all the service
+
+```bash
+docker-compose up
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+<b>The next section was extracted from the CSR version of this project and available at [https://github.com/VicHofs/poke-react.git](https://github.com/VicHofs/poke-react.git) because it works the same</b>
+
 # Poké React
 <div display="flex" align="center">
 	<img src="https://github.com/VicHofs/poke-react/blob/master/gh-assets/overview.gif" />
@@ -40,7 +67,7 @@ This project was developed with the following technologies:
 - [Insomnia][insomnia]
 - [PokéApi][pokeapi]
 - [Docker][docker]
-- [ExpressJS][express]
+- [NextJS][nextjs]
 
 ## 📋 Layout
 This is a SPA comprised of a header, search bar and pokémon cards resulting from searches.
@@ -63,46 +90,7 @@ Made with ❤ by Victor Hofstetter, Luann Sapucaia and Hugo Almeida at HICOM Bra
 [vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
 [prettier]: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 [pokeapi]: https://pokeapi.co/
-[express]: https://expressjs.com/
+[nextjs]: https://nextjs.org/
 [insomnia]: https://insomnia.rest
 [docker]: https://www.docker.com/
 [website]: https://vichofs.github.io/poke-react/
-
-<h1 align="center">Interacting with this project</h1>
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.

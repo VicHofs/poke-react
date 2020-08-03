@@ -1,0 +1,220 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+body {
+  --bg: rgb(224,224,224);
+  --lightContrast: rgb(200, 200, 200);
+  --details: rgb(61, 61, 61);
+  --vibrant: rgb(19, 19, 19);
+  background-color: rgb(224, 224, 224);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+      --bg: rgb(37, 37, 37);
+      --lightContrast: rgb(50, 50, 50);
+      --details: rgb(131, 131, 131);
+      --vibrant: rgb(231, 231, 218);
+      background-color: rgb(37, 37, 37);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+header {
+  top: 0;
+  left: 0;
+  position: absolute;
+  box-shadow: 0px 11px #CC0000;
+  width: 100%;
+  background-color: #FF0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: 'PokeTitle';
+  font-size: 8vh;
+  color: #FFDE00;
+  -webkit-text-stroke-width: 1.3px;
+  -webkit-text-stroke-color: #3B4CCA;
+  text-shadow: -4px 3px 1px #273286;
+  margin: 0;
+  padding: 10px;
+}
+
+@font-face {
+  font-family: 'PokeTitle';
+  src: local('PokeTitle'), url(../styles/fonts/Pocket-Monk.otf);
+}
+@font-face {
+  font-family: 'FireRed';
+  src: local('FireRed'), url(../styles/fonts/pokemon_fire_red.otf);
+}
+
+.pokeDataTitle {
+  font-family: 'FireRed', sans-serif;
+  font-size: 30px;
+  color: var(--vibrant);
+  margin: 0px;
+}
+
+.spacer {
+  height: 10px;
+}
+
+.descriptionDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerSpacer {
+  background-color: #CC0000;
+  height: 11vh;
+}
+
+.searchBar {
+  margin-top: 6vh;
+  border: 2px solid var(--details);
+  border-radius: 50px;
+  height: 40px;
+  width: 400px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6vh;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.searchBox {
+  background-color: var(--bg);
+  border: none;
+  height: 100%;
+  width: 100%;
+  padding: 0px 15px 4.5px;
+  border-radius: 50px;
+  font-size: 33px;
+  font-family: "FireRed", sans-serif;
+  color: var(--details);
+}
+
+.searchBox:focus {
+  outline: none;
+}
+
+.searchIcon {
+  color: var(--details);
+  height: 80%;
+  width: 80%;
+  margin-top: 2.5px;
+  margin-right: 15px; 
+  margin-left: 10px; 
+}
+
+.searchIcon:hover {
+  cursor: pointer;
+}
+
+.searchResults {
+  background-color: var(--bg);
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: 0px 8px 10px rgba(29, 29, 29, 0.699);
+  max-width: 100%;
+}
+
+.pokeData {
+  font-family: 'FireRed', sans-serif;
+  font-size: 25px;
+  color: var(--vibrant);
+  margin: 0px;
+  max-width: 40vw;
+}
+
+.divider {
+  background-color: var(--details);
+  margin-right: 8px;
+  margin-left: 8px;
+  width: 1px;
+  height: 80px;
+}
+
+.noResult {
+  padding: 0px 20px 0px 20px;
+  color: var(--details);
+  font-family: 'FireRed', sans-serif;
+  font-size: 25px;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  animation: 0.65s spinner infinite ease-in-out;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(19deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.listDrop {
+  display: flex;
+  border: 1px var(--details);
+  list-style-type: none;
+  justify-content: space-between;
+  background-color: var(--bg);
+  color: var(--vibrant);
+  font-family: 'FireRed', sans-serif;
+  font-size: 20px;
+  height: 25px;
+}
+
+.listDrop:focus {
+  outline: none;
+  background-color: var(--lightContrast);
+  border-width: 1px;
+}
+
+
+.listElement {
+  color: var(--vibrant);
+  background-color: var(--bg);
+  box-shadow: none;
+  border-radius: 5px;
+  border: none;
+  max-height: 20px;
+  margin: 5px;
+}
+
+option {
+  font-weight: normal;
+  display: block;
+  white-space: pre;
+  min-height: 1.2em;
+  padding: 0px 2px 1px;
+}
