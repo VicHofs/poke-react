@@ -23,8 +23,6 @@ docker-compose up
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<b>The next section was extracted from the CSR version of this project and available at [https://github.com/VicHofs/poke-react.git](https://github.com/VicHofs/poke-react.git) because it works the same</b>
-
 # Poké React
 <div display="flex" align="center">
 	<img src="https://github.com/VicHofs/poke-react/blob/master/gh-assets/overview.gif" />
