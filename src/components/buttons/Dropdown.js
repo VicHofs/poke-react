@@ -10,7 +10,7 @@ export default function Dropdown(props) {
             break;
         }
     }
-    console.log('dropdown got: ', flavorTexts);
+    
     return(
         <select className="listDrop" onChange={props.onChange}>
             {flavorTexts.map((entry) => <option className="listElement" value={`${entry.language.name}—${entry.version.name}`} key={`${entry.language.name}—${entry.version.name}`} selected={entry.language.name === 'en' && entry.version.name === targetVer}>{entry.language.name} — {entry.version.name}</option>)}

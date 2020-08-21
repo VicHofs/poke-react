@@ -5,25 +5,19 @@
   "homepage": "https://vichofs.github.io/poke-react/",
   "license": "MIT",
   "dependencies": {
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-react": "^7.10.4",
-    "@babel/register": "^7.10.5",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "express": "4.17.1",
     "gh-pages": "^3.1.0",
-    "ignore-styles": "^5.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.10.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "ssr": "node server/index.js",
-    "start": "react-scripts start",
+    "webpack:server": "webpack --config webpack.server.js --watch",
+    "webpack:client": "webpack --config webpack.client.js --watch",
+    "webpack:start": "nodemon ./build/bundle_server.js",
+    "start": "npm-run-all --parallel webpack:*",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
@@ -43,5 +37,19 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
+    "file-loader": "^6.0.0",
+    "mini-css-extract-plugin": "^0.10.0",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-node-externals": "^2.5.1"
+  }
 }

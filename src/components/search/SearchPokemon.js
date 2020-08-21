@@ -16,8 +16,7 @@ function Search(word) {
       lang: selection[0],
       ver: selection[1]
     });
-    console.log('changed version from ', flavorVersion.lang, flavorVersion.ver);
-  }
+   }
 
   const declutter = (string) => {
     return string.replace(String.fromCharCode(12), ' ');
@@ -48,7 +47,6 @@ function Search(word) {
           image: json.sprites.front_default,
           description: res.flavor_text_entries
         });
-        console.log(res);
       })
       .catch(err => {
         console.log(err);
@@ -67,14 +65,14 @@ function Search(word) {
         getDescription(json)
       })
       .catch(function (error) {
-        console.log('aqui getpoke', error, data);
+        console.log( error, data);
       });
   }
 
   const renderData = () => {
     if (data.length === 0) return <p className="noResult">No PokéDex matches</p>;
     if (data.description !== undefined) {
-      console.log('flavor data: ', data.description);
+      
       return (
       <>
         <td><img src={data.image} alt={data.name}></img></td>
