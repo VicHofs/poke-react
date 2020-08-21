@@ -63,6 +63,8 @@ This project was developed with the following technologies:
 - [PokéApi][pokeapi]
 - [Docker][docker]
 - [ExpressJS][express]
+- [WebpackJS][webpack]
+- [BabelJS][babel]
 
 ## 📋 Layout
 This is a SPA comprised of a header, search bar and pokémon cards resulting from searches.
