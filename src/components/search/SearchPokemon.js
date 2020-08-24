@@ -31,11 +31,7 @@ function Search(word) {
     }
   }
 
-  const formatId = (id) => {
-    if (id !== undefined) {
-      return '#' + id;
-    }
-  }
+  const formatId = (id) =>  '#' + id;
 
   const getDescription = (json) => {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${json.name}`)
@@ -77,7 +73,7 @@ function Search(word) {
       <>
         <td><img src={data.image} alt={data.name}></img></td>
         <td><div className="divider"></div></td>
-        <td className="pokeData">{formatId(data.id)}</td>
+        <td className="pokeData">{data.id && formatId(data.id)}</td>
         <td><div className="divider"></div></td>
         <td className="pokeData">
           <div className="descriptionDiv">

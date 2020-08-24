@@ -6,6 +6,16 @@ import SearchPokemon from './components/search/SearchPokemon'
 
 function App() {
   let [typedSearch, setTypedSearch] = useState("");
+  let debounceTime = null;
+
+  const debounceTyping = (typedSearch) => {
+    clearTimeout(debounceTime);
+
+    debounceTime = setTimeout(() => {
+      setTypedSearch(typedSearch);
+    }, 1000)
+
+  }
 
   return (
     <div className="mainView">
@@ -23,7 +33,7 @@ function App() {
                 type="text"
                 placeholder="Got a favorite Pokémon?"
                 className="searchBox"
-                onChange={e => setTypedSearch(e.target.value)}
+                onChange={e => debounceTyping(e.target.value)}
               />
             </td>
             <td>
