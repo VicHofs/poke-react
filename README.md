@@ -1,25 +1,3 @@
-## Why SSR?
-All the data will be pre-rendered via server side before the client side gets it, 
-so that it improves the performance and experience when navigating the application.
-You can check it out by simply disabling the javascript in your browser settings.
-You'll still get the pre-rendered html and css files but the application won't be
-able to interact with you, once it needs javascript to perform actions.
-
-
-## Getting Started With Poke React SSR on Docker
-
-First, clone the project 
-
-``` bash
-git clone https://github.com/hv90/poke-react.git && cd poke-react
-```
-Then let docker make all the service
-
-```bash
-docker-compose up
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 # Poké React
 <div display="flex" align="center">
 	<img src="https://github.com/VicHofs/poke-react/blob/master/gh-assets/overview.gif" />
@@ -36,6 +14,29 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
 <p align="center">
+	
+## Why SSR (Server Side Rendering)?
+All data will be pre-rendered by the server side before the client receives it, 
+which improves the application's performance and the user experience.
+You can see how this works by yourself by disabling JavaScript in your browser settings.
+You'll still get the pre-rendered HTML and CSS files, but the application won't be interactive, since it needs live JavaScript for that purpose.
+
+
+## :whale: Getting started with Poké React SSR on Docker
+
+First, clone the project 
+
+``` bash
+git clone https://github.com/hv90/poke-react.git && cd poke-react
+```
+Then run `docker-compose`
+
+```bash
+docker-compose up
+```
+
+Open [http://localhost:3000](http://localhost:3000) with a browser to see the result.
+
 
 ## 📝 Project
 
@@ -77,7 +78,7 @@ This project is under the MIT license. See the [LICENSE](https://github.com/VicH
 
 
 
-Made with ❤ by Victor Hofstetter, Luann Sapucaia and Hugo Almeida at HICOM Brazil.
+Made with ❤ by Victor Hofstetter, Luann Sapucaia and Hugo Almeida at Hicom IT Brazil.
 
 [javascript]: https://www.typescriptlang.org/
 [reactjs]: https://reactjs.org
